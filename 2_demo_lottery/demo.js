@@ -11,7 +11,7 @@ var min_times = 20;     //最低[切换]次数
 var prize_index = 3;    //指定中奖奖品的索引
 
 function loop() {
-    if ( total_times > min_times && i == prize_index) {
+    if (total_times > min_times && i == prize_index + 1) {
         console.log("Congratulations");
     } else {
         total_times++;
