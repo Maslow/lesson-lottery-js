@@ -1,10 +1,14 @@
 手把手教你用js写一个抽奖工具
 -------------------------
 
+
 Installation
 ------------
+```git
+ git clone https://github.com/Maslow/lesson-lottery-js.git
+```
 
-```shell
+```shell 
  npm install
 ```
 
