@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .lottery-container .item {
+            border: 1px solid gray;
+            height: 50px;
+        }
+        .lottery-container .active {
+            background-color: greenyellow;
+        }
+    </style>
+</head>
+<body>
+<h4>LESSON 6 可重用封装</h4>
+<div class="lottery-container">
+    <div class="item">A</div>
+    <div class="item">B</div>
+    <div class="item">C</div>
+    <div class="item">D</div>
+    <div class="item">E</div>
+</div>
+<button id="btn-start">开始抽奖</button>
+<script src="../node_modules/jquery/dist/jquery.js"></script>
+<script src="lottery.js"></script>
+<script>
+    $("#btn-start").click(function () {
+        //创建一个lottery对象
+        var lot = createLottery(".lottery-container .item", function (index) {
+            alert("Congratulations! WIN A PRIZE : " + index);
+        });
+        //开始抽奖动画
+        lot.loop();
+        //请求中奖奖品
+        $.ajax({
+            url: "code.json",
+            method: 'post',
+            dataType: 'json',
+            success: function (rs) {
+                lot.setPrizeIndex(rs.prizeIndex);  // 设置中奖奖品
+            }
+        });
+    });
+</script>
+</body>
+</html>
