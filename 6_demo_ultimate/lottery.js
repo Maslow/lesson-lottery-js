@@ -15,7 +15,8 @@
             count: 0,
             min_times: 40,
             total_times: 0,
-            active_class: 'active'
+            active_class: 'active',
+            min_t: 500
         };
         lottery.count = $(item_selector).length;
         lottery.update = function () {
@@ -39,7 +40,7 @@
             }
         };
 
-        lottery.setPrizeIndex = function(id){
+        lottery.setPrizeIndex = function (id) {
             lottery.prize_index = id;
         };
 
@@ -49,7 +50,10 @@
             if (lottery.prize_index != -1)
                 lottery.t = lottery.t + lottery.a;
 
-            if (lottery.total_times > lottery.min_times && lottery.index == lottery.prize_index + 1 && lottery.t > 500) {
+            if (lottery.total_times > lottery.min_times
+                && lottery.index == lottery.prize_index + 1
+                && lottery.t > lottery.min_t) {
+
                 callback(lottery.index);
             } else {
                 lottery.update();
