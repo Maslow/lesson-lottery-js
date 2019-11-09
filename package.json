@@ -4,7 +4,7 @@
   "description": "Lottery js library ",
   "main": "index.js",
   "dependencies": {
-    "jquery": "^1.12.4"
+    "jquery": "^3.4.1"
   },
   "devDependencies": {},
   "scripts": {
